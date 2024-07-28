@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Spring Boot HTML</title>
+</head>
+<body>
+<h1 th:text="${message}">Hello, Spring Boot!</h1>
+
+<p>Welcome to the Spring Boot application with Thymeleaf.</p>
+
+<ul>
+    <li th:each="item : ${items}" th:text="${item}">Item</li>
+</ul>
+</body>
+</html>

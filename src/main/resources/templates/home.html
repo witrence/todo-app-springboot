@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+</head>
+<body>
+<!--<h1 th:text="${message}"></h1>-->
+<!--<ul>-->
+<!--    <li th:each="item : ${items}" th:text="${item}"></li>-->
+<!--</ul>-->
+
+<!--&lt;!&ndash; Form to submit new items &ndash;&gt;-->
+<!--<form action="#" th:action="@{/submit}" th:object="${itemForm}" method="post">-->
+<!--    <input type="text" th:field="*{item}" placeholder="Enter new item"/>-->
+<!--    <button type="submit">Add Item</button>-->
+<!--</form>-->
+<div class="container">
+    <h1 class="my-4" th:text="${message}"></h1>
+    <ul class="list-group mb-4">
+        <li class="list-group-item d-flex justify-content-between align-items-center" th:each="item, iterStat : ${items}">
+            <span th:text="${item}"></span>
+            <a th:href="@{/edit/{index}(index=${iterStat.index})}" class="btn btn-sm btn-primary">Edit</a>
+        </li>
+    </ul>
+
+    <!-- Form to submit new items -->
+    <form class="form-inline" th:action="@{/submit}" th:object="${itemForm}" method="post">
+        <div class="form-group mb-2">
+            <label for="newItem" class="sr-only">New Item</label>
+            <input type="text" class="form-control" id="newItem" th:field="*{item}" placeholder="Enter new item"/>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2 ml-2">Add Item</button>
+    </form>
+</div>
+
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>
